@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+    php:
+        build: .
+        volumes:
+        - ./php.ini:/usr/local/etc/php/php.ini
+        - ./html:/var/www/html
+        ports:
+        #こいつがフロントエンド
+        - 9090:80
+    mysql:
+        image: mysql:8.0
+        # volumes:
+        # - ./mysql:/var/lib/mysql
+        environment:
+        - MYSQL_ROOT_PASSWORD=root
+        - MYSQL_DATABASE=mydatas
+        #- MYSQL_USER=root
+        #- MYSQL_PASSWORD=root
+        - TZ=Asia/Tokyo
+    phpMyAdmin:
+        image: phpmyadmin/phpmyadmin
+        environment:
+        - PMA_HOST=mysql
+        - MYSQL_ROOT_PASSWORD=root
+        - MYSQL_DATABASE=mydatas
+        #- MYSQL_USER=root
+        #- MYSQL_PASSWORD=root
+        ports:
+        - 500:80
+        # volumes:
+        # - ./phpmyadmin/sessions:/sessions
