@@ -1,7 +1,11 @@
 <? 
     require_once '../Sql/personal_info.php';
+
+
+
     session_start();
     // メールアドレスのチェック
+
     $mail = filter_input(INPUT_POST, 'mail', FILTER_SANITIZE_EMAIL);
         // パスワードのチェック
     $password = filter_input(INPUT_POST, 'password');

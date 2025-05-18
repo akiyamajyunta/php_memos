@@ -1,7 +1,7 @@
 <?
     require '../Sql/memo.php';
     require_once '../Sql/personal_info.php';
-    //require_once '../Sql/';
+   
     make_table_info();
     memo_create_table();
 
@@ -17,6 +17,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=, initial-scale=1.0">
     <title>Document</title>
+    <script></script>
 </head>
 <body>
     <a>こんにちはblue-birdを利用するにはログインしてください</a>
