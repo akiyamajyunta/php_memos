@@ -3,7 +3,7 @@
     //ユーザーの新規登録
     session_start();
     //名前のチェック
-    $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_EMAIL);
+    $name = filter_input(INPUT_POST, 'name');
     // メールアドレスのチェック
     $mail = filter_input(INPUT_POST, 'mail', FILTER_SANITIZE_EMAIL);
     // パスワードのチェック

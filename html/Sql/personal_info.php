@@ -22,15 +22,15 @@
         try{
             $pdo = new PDO('mysql:host=mysql; dbname=mydatas; charset=utf8','root','root');
         
-                            $sql = "INSERT INTO info
-                                        (name,  mail, password , login) 
-                                    VALUES 
-                                        (:name , :mail, :password , false)";
-                            $statement = $pdo->prepare($sql);
-                            $statement->bindValue(':name', $name, PDO::PARAM_STR);
-                            $statement->bindValue(':mail', $mail, PDO::PARAM_STR);
-                            $statement->bindValue(':password', $password, PDO::PARAM_STR);
-                            $statement->execute();
+                $sql = "INSERT INTO info
+                            (name,  mail, password , login) 
+                        VALUES 
+                            (:name, :mail, :password , false)";
+                $statement = $pdo->prepare($sql);
+                $statement->bindValue(':name', $name, PDO::PARAM_STR);
+                $statement->bindValue(':mail', $mail, PDO::PARAM_STR);
+                $statement->bindValue(':password', $password, PDO::PARAM_STR);
+                $statement->execute();
 
                             return True;
             } catch (PDOException $e){
@@ -116,13 +116,16 @@
         $sql = "SELECT * FROM info WHERE login = True";
         $statement = $pdo->prepare($sql);
         $statement->execute();
-        $result = $statement->fetch(PDO::FETCH_ASSOC);
+
+        $result = [];
+        while ($row = $statement->fetch(PDO::FETCH_ASSOC)){
+                    $result[] = $row;
+                }
         $statement = null;
         $pdo = null;
         if($result){   
-
-            return True;
+            return array($result[0]['id'],$result[0]['name']);
         }else{
-            return false;
+            return 'ないです';
         }
     }
