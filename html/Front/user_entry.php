@@ -51,5 +51,10 @@
             <button type="submit">戻る</button>
         </div>
     </form>
+    <form action="../PageAction/logout.php" method="post">
+        <div>
+            <button type="submit">ログアウト</button>
+        </div>
+    </form>
 </body>
 </html>

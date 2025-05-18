@@ -1,16 +1,13 @@
 <? 
     require_once '../Sql/personal_info.php';
 
-
-
     session_start();
     // メールアドレスのチェック
-
-    $mail = filter_input(INPUT_POST, 'mail', FILTER_SANITIZE_EMAIL);
+    $mail = filter_input(INPUT_GET, 'mail', FILTER_SANITIZE_EMAIL);
         // パスワードのチェック
-    $password = filter_input(INPUT_POST, 'password');
+    $password = filter_input(INPUT_GET, 'password');
         // パスワードのチェック(2回目)
-    $password_next = filter_input(INPUT_POST, 'password_next');
+    $password_next = filter_input(INPUT_GET, 'password_next');
 
     if (empty($mail)) {
             $message = 'メールアドレスが入力されてません';

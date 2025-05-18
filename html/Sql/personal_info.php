@@ -73,12 +73,56 @@
         
         $statement = null;
         $pdo = null;
+        
 
         if($result){   
+            log_out();
+            login_now($mail,$password);
             return True;
         }else{
             return false;
         }
     }
-        
+
+    function log_out(){
+        $pdo = new PDO('mysql:host=mysql; dbname=mydatas; charset=utf8','root','root');
+        $sql = "UPDATE  info
+                SET login = False";
+        $statement = $pdo->prepare($sql);
+        $statement->execute();
+        $statement = null;
+        $pdo = null;
+    }
     
+    function login_now($mail,$password){
+        $pdo = new PDO('mysql:host=mysql; dbname=mydatas; charset=utf8','root','root');
+            $sql ="update info SET
+                    login = true
+                        WHERE 
+                    mail = :mail AND password = :password";
+        $statement = $pdo->prepare($sql);
+
+        $statement->bindValue(':mail', $mail, PDO::PARAM_STR);
+        $statement->bindValue(':password', $password, PDO::PARAM_INT);
+        $statement->execute();
+        
+        $statement = null;
+        $pdo = null;
+        
+    }
+    
+    function login_check(){
+        $pdo = new PDO('mysql:host=mysql; dbname=mydatas; charset=utf8','root','root');
+        $sql = "SELECT * FROM info WHERE login = True";
+        $statement = $pdo->prepare($sql);
+        $statement->execute();
+        $result = $statement->fetch(PDO::FETCH_ASSOC);
+        $statement = null;
+        $pdo = null;
+        if($result){   
+
+            return True;
+        }else{
+            return false;
+        }
+    }

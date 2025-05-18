@@ -71,7 +71,7 @@
                 } ?>
         </table> 
     </div>
-    <form action="../Front/index.php" method="post">
+    <form action="../PageAction/logout.php" method="post">
         <div>
             <button type="submit">ログアウト</button>
         </div>
