@@ -86,12 +86,13 @@
 
     function log_out(){
         $pdo = new PDO('mysql:host=mysql; dbname=mydatas; charset=utf8','root','root');
-        $sql = "UPDATE  info
-                SET login = False";
+        $sql = "UPDATE info
+                    SET 
+                login = False";
         $statement = $pdo->prepare($sql);
         $statement->execute();
         $statement = null;
-        $pdo = null;
+        $pdo = null;;
     }
     
     function login_now($mail,$password){
@@ -124,8 +125,8 @@
         $statement = null;
         $pdo = null;
         if($result){   
-            return array($result[0]['id'],$result[0]['name']);
+            return array($result[0]['id'],$result[0]['name'],$result[0]['mail'],$result[0]['password']);
         }else{
-            return array('','ゲスト');
+            return array('','ゲスト','','');
         }
     }

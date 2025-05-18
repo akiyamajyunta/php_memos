@@ -59,12 +59,6 @@
             <?php foreach ($memos as  $memo) { ?>
                     <div>
                         <div>
-                            <a><?= $memo['user_id'] ?></a>
-                        </div>
-                        <div>
-                            <a><?= $memo['id'] ?></a>
-                        </div>
-                        <div>
                             <a><?= $memo['title'] ?></a>
                         </div>
                         <div>

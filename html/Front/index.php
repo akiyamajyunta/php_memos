@@ -1,12 +1,14 @@
 <?
     require '../Sql/memo.php';
     require_once '../Sql/personal_info.php';
-    
-    $now_date = login_check();
-    // echo  $now_date[0] . '今ログインしてるユーザーのID';
-    $name = $now_date[1] . '現在ログインしてるユーザーの名前';
     make_table_info();
     memo_create_table();
+    $now_date = login_check();
+    // echo  $now_date[0] . '今ログインしてるユーザーのID';
+    $name = $now_date[1]; //. '現在ログインしてるユーザーの名前';
+    $mail = $now_date[2];//mail
+    $password = $now_date[3];//password
+
 
     if (isset($_GET['message'])) {
     $message = $_GET['message'];
@@ -38,15 +40,15 @@
     <form action='../PageAction/login.php' method="get">
         <div>
             <label>メールアドレス</label>
-            <input name="mail" id="mail" type="text">
+            <input name="mail" id="mail" type="text" value=<?php echo $mail; ?>>
         </div>
         <div>
             <label>パスワード</label>
-            <input name="password" id="password" type="password">
+            <input name="password" id="password" type="password" value=<?php echo $password; ?>>
         </div>
         <div>
             <label>パスワード再入力</label>
-            <input name="password_next" id="password_next" type="password">
+            <input name="password_next" id="password_next" type="password" value=<?php echo $password; ?>>
         </div>
         <div>
             <button type="submit">ログイン</button>
@@ -59,7 +61,7 @@
         </div>
     </form>
     <!-- ログアウト -->
-    <form action="" method="post">
+    <form action="../PageAction/logout.php" method="post">
         <div>
             <button type="submit">ログアウト</button>
         </div>
