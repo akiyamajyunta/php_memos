@@ -1,7 +1,10 @@
 <?
     require '../Sql/memo.php';
     require_once '../Sql/personal_info.php';
-   
+    
+    $now_date = login_check();
+    // echo  $now_date[0] . '今ログインしてるユーザーのID';
+    $name = $now_date[1] . '現在ログインしてるユーザーの名前';
     make_table_info();
     memo_create_table();
 
@@ -20,8 +23,12 @@
     <script></script>
 </head>
 <body>
-    <a>こんにちはblue-birdを利用するにはログインしてください</a>
-    
+    <a>こんにちはblue-bird</a>
+    <div>
+        <?php if (!empty($name)): ?>
+            <a><?php echo $name; ?></a>
+        <?php endif; ?>
+    </div>
     <div>
         <?php if (!empty($message)): ?>
             <a><?php echo $message; ?></a>

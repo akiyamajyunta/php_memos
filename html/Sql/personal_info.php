@@ -126,6 +126,6 @@
         if($result){   
             return array($result[0]['id'],$result[0]['name']);
         }else{
-            return 'ないです';
+            return array('','ゲスト');
         }
     }
