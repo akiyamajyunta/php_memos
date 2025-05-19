@@ -32,12 +32,30 @@
         <p>ユーザー情報</p>
         <p><? echo $name ?></p>
         <p><? echo $mail ?></p>
-            <div class="form">
-                <button class='form-button' type="submit" name ="User_id" value="<?php echo $user_id; ?>">メールアドレスを変える</button>
-            </div>          
-            <div class="form">
-                <button class='form-button' type="submit" name ="User_id" value="<?php echo $user_id; ?>">パスワードを変える</button>
+
+
+            <div class="form" onclick="ChangeName()">
+                <button class='form-button' type="submit">名前を変える</button>
+            </div>  
+            <div class="new-name" id='new-name'>
+                <input class="form-text" name="new-name" type="text">
+                <button class='change-button' type="submit">変更</button>
+            </div>        
+
+
+
+            <div class="form" onclick="ChangePassword()">
+                <button class='form-button' type="submit">パスワードを変える</button>
             </div>
+            <div class="new-password" id='new-password'>
+                <input class="form-text" name="now-password" type="text">
+                <label>現在のパスワード</label>
+                <input class="form-text" name="new-password" type="text">
+                <label>新しいパスワード</label>
+                <button class='change-button' type="submit">変更</button>
+            </div> 
+
+
         <br>
 
     </div>
@@ -55,14 +73,23 @@
         margin-top: 10%;
         }
     .form {
+        display:flex;
+        flex-direction: column;
+    }
+    .new-name {
+        display: none;
+        flex-direction: column;
+    }
+    .new-password {
         display: flex;
         flex-direction: column;
-        /* display: none; */
+        display: none;
     }
-
     .form-text{
     text-align: center;
     color: black;
+    width: 100%;
+    margin: 5% auto auto auto;
     }
 
     .form-button{
@@ -74,12 +101,32 @@
     background-color:rgb(0, 247, 255);
     border-radius: 100vh;
     }
+    .change-button{
+        text-align: center;
+        width: 30%;
+        margin: 10% auto auto auto;
+        top: 30%;
+        color: #fff;
+        background-color:rgb(0, 247, 255);
+        border-radius: 100vh;
+    }
 </style>
 
 <script>
-    function toggleOption() {
-        const form = document.getElementById("OptionContainer");
-        form.style.display = (form.style.display === "block") ?  "none":"block" ;
+    const getNameFrom = document.getElementById("new-name");
+    const getPasswordFrom = document.getElementById("new-password");
+
+    function ChangeName(){
+        getNameFrom.style.display = (getNameFrom.style.display === "flex") ?  "none":"flex" ;
+        getPasswordFrom.style.display = "none"; 
+
+    }
+
+    function ChangePassword(){
+        getPasswordFrom.style.display = ( getPasswordFrom.style.display === "flex") ?  "none":"flex" ;
+        getNameFrom.style.display = "none"; 
+
+        
     }
 
 </script>
