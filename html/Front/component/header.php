@@ -1,5 +1,5 @@
 <?  
-
+function blue_bird_header($logout_link,$logout,$new_entry_link,$new_entry,$name){
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,16 +18,17 @@
                 </div>
             </div>
             <ul class="nav">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">logout</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact Us</a></li>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="<?php echo $logout_link; ?>"><?php echo $logout; ?></a></li>
+                <li><a href=<?php echo $new_entry_link?>><?php echo $new_entry?></a></li>
+                <li class="user-name"><a><?php echo $name?></a></li>
             </ul>
         </div>
     </header>
 </body>
 </html>
 <style>
+
 *{
     box-sizing:border-box;
     -moz-box-sizing:border-box;
@@ -109,9 +110,13 @@ body{background:#ecf0f1; font-family:arial; margin:0; color:#888}
     width: 50px;
     height: 50px;
 }
-
+.user-name{
+    font-size: 20px;
+}
 
 </style>
-<?  
 
+<?  
+}
 ?>
+<?  ?>

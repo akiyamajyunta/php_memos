@@ -14,6 +14,9 @@
     $message = $_GET['message'];
     } 
 
+    $new_entry_link = 'user_entry.php';
+    $log_out_link = '../PageAction/logout.php';
+
 ?>
 
 <!DOCTYPE html>
@@ -28,18 +31,9 @@
 <body>
     <?
         include '../Front/component/header.php';
+        blue_bird_header($log_out_link,'ログアウト',$new_entry_link,'新規登録',$name)
     ?>
-    <a>こんにちはblue-bird</a>
-    <div>
-        <?php if (!empty($name)): ?>
-            <a><?php echo $name; ?></a>
-        <?php endif; ?>
-    </div>
-    <div>
-        <?php if (!empty($message)): ?>
-            <a><?php echo $message; ?></a>
-        <?php endif; ?>
-    </div>
+
 <div class="container">
     <form action='../PageAction/login.php' method="get">
         <div class="form">
@@ -54,23 +48,18 @@
             <label class="form-text">パスワード再入力</label>
             <input name="password_next" id="password_next" type="password" value=<?php echo $password; ?>>
         </div>
+        <br>
         <div class="form">
             <button class='form-button' type="submit">ログイン</button>
         </div>
     </form>
 </div>
-    <!-- 新規登録 -->
-    <form action="user_entry.php" method="post">
-        <div>
-            <button type="submit">新規登録</button>
-        </div>
-    </form>
-    <!-- ログアウト -->
-    <form action="../PageAction/logout.php" method="post">
-        <div>
-            <button type="submit">ログアウト</button>
-        </div>
-    </form>
+
+    <div class='message'> 
+        <?php if (!empty($message)): ?>
+            <a><?php echo $message; ?></a>
+        <?php endif; ?>
+    </div>
 
 </body>
 </html>
@@ -81,8 +70,9 @@
         margin: 0 auto;
         padding: 20px;
         background-color: #ffffff;
-        border: 1px solid #ccc;
+        border: 3px solid #00FFFF;
         border-radius: 5px;
+        margin-top: 10%;
         }
     .form {
         display: flex;
@@ -91,6 +81,7 @@
 
     .form-text{
     text-align: center;
+    color: black;
     }
 
     .form-button{
@@ -98,6 +89,13 @@
     width: 30%;
     margin: auto;
     top: 30%;
+    color: #fff;
+    background-color:rgb(0, 247, 255);
+    border-radius: 100vh;
     }
-
+.message{
+    text-align: center;
+    color: black;
+    margin-top: 3%;
+}
 </style>
