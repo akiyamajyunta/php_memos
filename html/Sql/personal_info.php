@@ -130,3 +130,35 @@
             return array('','ゲスト','','');
         }
     }
+
+//メールアドレスの変更
+    function change_mail($mail,$password){
+        $pdo = new PDO('mysql:host=mysql; dbname=mydatas; charset=utf8','root','root');
+            $sql ="update info SET
+                    mail = :mail
+                        WHERE 
+                    login = true";
+        $statement = $pdo->prepare($sql);
+        $statement->bindValue(':mail', $mail, PDO::PARAM_STR);
+        $statement->execute();
+        
+        $statement = null;
+        $pdo = null;
+        
+    }
+
+//パスワードの変更
+    function change_password($password){
+        $pdo = new PDO('mysql:host=mysql; dbname=mydatas; charset=utf8','root','root');
+            $sql ="update info SET
+                    password = :password
+                        WHERE 
+                    login = true";
+        $statement = $pdo->prepare($sql);
+        $statement->bindValue(':password', $password, PDO::PARAM_STR);
+        $statement->execute();
+        
+        $statement = null;
+        $pdo = null;
+        
+    }

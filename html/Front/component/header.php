@@ -18,10 +18,9 @@ function blue_bird_header($logout_link,$logout,$new_entry_link,$new_entry,$name)
                 </div>
             </div>
             <ul class="nav">
-                <li><a href="index.php">Home</a></li>
                 <li><a href="<?php echo $logout_link; ?>"><?php echo $logout; ?></a></li>
                 <li><a href=<?php echo $new_entry_link?>><?php echo $new_entry?></a></li>
-                <li class="user-name"><a><?php echo $name?></a></li>
+                <li class="user-name"><a href="../../../Front/option.php"><?php echo $name?></a></li>
             </ul>
         </div>
     </header>
