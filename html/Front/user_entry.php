@@ -1,11 +1,15 @@
 <?
-// require_once '../CreaTable/personal_info.php';
-//     make_table_info();
-
+    require_once '../Sql/personal_info.php';
     if (isset($_GET['message'])) {
         $message = $_GET['message'];
-    } 
-        
+    }
+    
+    $now_date = login_check();
+
+    $name = $now_date[1]; //. '現在ログインしてるユーザーの名前';
+    $mail = $now_date[2];//mail
+    $new_entry_link = 'user_entry.php';
+    $log_out_link = '../PageAction/logout.php';
 ?>
 
 <!DOCTYPE html>
@@ -16,45 +20,74 @@
     <title>Document</title>
 </head>
 <body>
-    <a>新規登録</a>
-    
-    <div>
+    <?
+        include '../Front/component/header.php';
+        blue_bird_header($log_out_link,'ログアウト',$new_entry_link,'新規登録',$name)
+    ?>
+<div class="container">
+    <form action='../PageAction/entry.php' method="post">
+        <div class="form">
+            <label  class="form-text">ユーザーネーム</label>
+            <input name="name" id="name" type="text">
+        </div>
+        <div class="form">
+            <label  class="form-text">メールアドレス</label>
+            <input name="mail" id="mail" type="text">
+        </div>
+        <div class="form">
+            <label  class="form-text">パスワード</label>
+            <input name="password" id="password" type="password">
+        </div>
+        <div class="form">
+            <label  class="form-text">パスワード再入力</label>
+            <input name="password_next" id="password_next" type="password">
+        </div>
+        <br>
+        <div class="form">
+            <button class='form-button' type="submit">登録する</button>
+        </div>
+    </form>
+</div>   
+    <div class='message'> 
         <?php if (!empty($message)): ?>
             <a><?php echo $message; ?></a>
         <?php endif; ?>
     </div>
-
-    <form action='../PageAction/entry.php' method="post">
-        <div>
-            <label>ユーザーネーム</label>
-            <input name="name" id="name" type="text">
-        </div>
-        <div>
-            <label>メールアドレス</label>
-            <input name="mail" id="mail" type="text">
-        </div>
-        <div>
-            <label>パスワード</label>
-            <input name="password" id="password" type="password">
-        </div>
-        <div>
-            <label>パスワード再入力</label>
-            <input name="password_next" id="password_next" type="password">
-        </div>
-        <div>
-            <button type="submit">登録する</button>
-        </div>
-    </form>
-
-    <form action="index.php" method="post">
-        <div>
-            <button type="submit">戻る</button>
-        </div>
-    </form>
-    <form action="../PageAction/logout.php" method="post">
-        <div>
-            <button type="submit">ログアウト</button>
-        </div>
-    </form>
 </body>
 </html>
+
+<style>
+        .container {
+        width: 300px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #ffffff;
+        border: 3px solid #00FFFF;
+        border-radius: 5px;
+        margin-top: 10%;
+        }
+    .form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-text{
+    text-align: center;
+    color: black;
+    }
+
+    .form-button{
+    text-align: center;
+    width: 30%;
+    margin: auto;
+    top: 30%;
+    color: #fff;
+    background-color:rgb(0, 247, 255);
+    border-radius: 100vh;
+    }
+.message{
+    text-align: center;
+    color: black;
+    margin-top: 3%;
+}
+</style>

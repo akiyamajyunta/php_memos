@@ -24,11 +24,6 @@
 </head>
 <body>
     <div>
-        <?php if (!empty($name)): ?>
-            <a><?php echo $name; ?></a>
-        <?php endif; ?>
-    </div>
-    <div>
         <?php if (!empty($message)): ?>
             <a><?php echo htmlspecialchars($message, ENT_QUOTES, 'UTF-8'); ?></a>
         <?php endif; ?>
@@ -44,10 +39,6 @@
                     <input name="sentence" id="sentence" type="text">
                     <label>本文</label>
                 </div>
-                <!-- <div>
-                    <input name="User_id" id="User_id" type="text">
-                    <label>ID(仮)</label>
-                </div> -->
                 <div>
                     <button type="submit" name ="User_id" value="<?php echo $user_id; ?>">ささやく</button>
                 </div>
