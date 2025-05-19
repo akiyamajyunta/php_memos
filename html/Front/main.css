@@ -1,0 +1,122 @@
+.container {
+        width: 400px;
+        height: 300px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #ffffff;
+        border: 3px solid #00FFFF;
+        border-radius: 5px;
+        margin-top: 10%;
+        position:absolute;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: none;
+        }
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    }
+
+.form-text-title{
+    border: 3px solid rgb(0, 0, 0);
+    text-align: center;
+    color: black;
+    margin-top: 1%;
+    height: 30px;
+    }
+.form-text-sentence{
+    border: 3px solid rgb(0, 0, 0);
+    text-align: center;
+    color: black;
+    margin-top: 10%;
+    height: 100px;
+    }
+.form-button{
+    text-align: center;
+    width: 30%;
+    margin: auto;
+    top: 30%;
+    color: #fff;
+    background-color:rgb(0, 247, 255);
+    border-radius: 100vh;
+    }
+.delete-memo{
+    display: flex; 
+    justify-content: flex-end;
+    }
+.delete-button{
+    color:rgb(0, 0, 0);
+    text-align: center;
+    margin: auto;
+    top: 0%;
+    background-color:rgba(255, 255, 255, 0.7);    
+    }
+.message{
+    text-align: center;
+    color: black;
+    margin-top: 3%;
+}
+
+.memo-frame-back{
+    position: absolute;
+    background-color: rgb(241, 241, 241);
+    border: thick double rgb(0, 0, 0);
+    left: 50%;
+    top: 50%;
+    padding-top: 80px;
+    z-index: -100;
+    transform: translate(-50%, -50%);
+    margin: 0 auto;
+    width: 60%;
+    min-height: 100vh;
+}
+.memo-frame {
+    margin: 0 auto;
+    background: #dcefff;
+    width: 99%;
+
+}
+.memo-frame .box-title {
+    font-size: 1.2em;
+    background: #5fb3f5;
+    padding: 4px;
+    color: #FFF;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+}
+.memo-frame p {
+    padding: 15px 20px;
+    margin: 0;
+}
+
+.pen-position{
+    position: absolute;
+    left: 20px;
+    margin-top: 400px;
+}
+
+.pen-images{
+    position: absolute;
+    z-index: 100;
+    width: 100px;
+    height: 100px;
+}
+
+.main-message-form{
+    position:absolute;
+    margin: auto;
+    top: 10%;
+    z-index: -200;
+    display: flex;
+    width: 500px;
+    height: 50px;
+    border-bottom-style: solid;
+    display: flex;
+    
+}
+.main-message{
+    font-size: 20px;   
+    color: black;
+}
+
