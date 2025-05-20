@@ -1,7 +1,7 @@
 <?
     require '../Sql/memo.php';
 
-    session_start();
+   
     //タイトル
     $title = filter_input(INPUT_POST, 'title');
     // 文章
@@ -32,14 +32,14 @@
             exit;
     }else{
         if(write_memos($title,$sentence,$user_id)){
-                session_start();
-                $_SESSION['message_main'] = '投稿しました';
-                header("Location: ../Front/main.php");
-                exit;
+            session_start();
+            $_SESSION['message_main'] = '投稿しました';
+            header("Location: ../Front/main.php");
+            exit;
         }else{
-                session_start();
-                $_SESSION['message_main'] = '投稿できませんでした';
-                header("Location: ../Front/main.php");
-                exit;
+            session_start();
+            $_SESSION['message_main'] = '投稿できませんでした';
+            header("Location: ../Front/main.php");
+            exit;
         }
     }

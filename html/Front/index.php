@@ -20,76 +20,75 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
-    <title>Document</title>
-    <script></script>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=, initial-scale=1.0">
+        <title>Document</title>
+        <script></script>
+    </head>
+    <body>
+        <?
+            include '../Front/component/header.php';
+            blue_bird_header($log_out_link,'ログアウト',$new_entry_link,'新規登録',$name)
+        ?>
 
-</head>
-<body>
-    <?
-        include '../Front/component/header.php';
-        blue_bird_header($log_out_link,'ログアウト',$new_entry_link,'新規登録',$name)
-    ?>
-
-<div class="container">
-    <form action='../PageAction/login.php' method="get">
-        <div class="form">
-            <label class="form-text">メールアドレス</label>
-            <input name="mail" id="mail" type="text" value=<?php echo $mail; ?>>
+        <div class="container">
+            <form action='../PageAction/login.php' method="get">
+                <div class="form">
+                    <label class="form-text">メールアドレス</label>
+                    <input name="mail" id="mail" type="text" value=<?php echo $mail; ?>>
+                </div>
+                <div class="form">
+                    <label class="form-text">パスワード</label>
+                    <input name="password" id="password" type="password" value=<?php echo $password; ?>>
+                </div>
+                <br>
+                <div class="form">
+                    <button class='form-button' type="submit">ログイン</button>
+                </div>
+            </form>
         </div>
-        <div class="form">
-            <label class="form-text">パスワード</label>
-            <input name="password" id="password" type="password" value=<?php echo $password; ?>>
-        </div>
-        <br>
-        <div class="form">
-            <button class='form-button' type="submit">ログイン</button>
-        </div>
-    </form>
-</div>
-
-    <div class='message'> 
-        <?php if (!empty($message)): ?>
+        <div class='message'>
+            <?php if (!empty($message)): ?>
             <a><?php echo $message; ?></a>
-        <?php endif; ?>
-    </div>
-
-</body>
+            <?php endif; ?>
+        </div>
+    </body>
 </html>
 
 <style>
-    .container {
-        width: 300px;
-        margin: 0 auto;
-        padding: 20px;
-        background-color: #ffffff;
-        border: 3px solid #00FFFF;
-        border-radius: 5px;
-        margin-top: 10%;
-        }
-    .form {
-        display: flex;
-        flex-direction: column;
-    }
+.container {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 3px solid #00FFFF;
+    border-radius: 5px;
+    margin-top: 10%;
+}
 
-    .form-text{
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-text {
     text-align: center;
     color: black;
-    }
+}
 
-    .form-button{
+.form-button {
     text-align: center;
     width: 30%;
     margin: auto;
     top: 30%;
     color: #fff;
-    background-color:rgb(0, 247, 255);
+    background-color: rgb(0, 247, 255);
     border-radius: 100vh;
-    }
-.message{
+}
+
+.message {
     text-align: center;
     color: black;
     margin-top: 3%;

@@ -7,16 +7,14 @@
         header("Location: ../Front/option.php");
     }//ゲスト(ログインしてないなら、戻す)
 
-
     if (empty($new_name)) {
         session_start();
-                $_SESSION['message_option'] = '名前が入力されてません';
+            $_SESSION['message_option'] = '名前が入力されてません';
             header("Location: ../Front/option.php");
             exit;
     }else{
         session_start();
-                 $_SESSION['message_option'] = '名前を変えました';
+            $_SESSION['message_option'] = '名前を変えました';
             change_mail($new_name);
             header("Location: ../Front/option.php");
     }
-

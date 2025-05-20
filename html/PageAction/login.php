@@ -7,7 +7,6 @@
     $password = filter_input(INPUT_GET,'password');
         // パスワードのチェック(2回目)
 
-
     if (empty($mail)) {
             session_start();
             $_SESSION['message'] = 'メールアドレスが入力されてません';
@@ -15,23 +14,23 @@
             exit;
     }
 
-
     if (empty($password)){
             session_start();
             $_SESSION['message'] = 'パスワードを入力してください';
             header("Location: ../Front/index.php");
             exit;
     }
+
     if(login($mail,$password)){
+        session_start();
         $_SESSION['message'] = '';
-        $_SESSION['message_main'] = 'ログインに成功しました';
-        header("Location: ../Front/main.php?");
+        $_SESSION['message_main'] = 'ログイン成功';
+        header("Location: ../Front/main.php");
     }else{
         session_start();
         $_SESSION['message'] =  'ログインできませんでした';
         header("Location: ../Front/index.php");
         exit;
-
     }
 
 

@@ -32,35 +32,35 @@ echo '--------------------------------ここからはメモの中身------------
     require '../Sql/memo.php';
     $memos = all_put_memo();
 ?>
+<div>
+    <table>
+        <?php foreach ($memos as  $memo) { ?>
         <div>
-        <table>
-            <?php foreach ($memos as  $memo) { ?>
-                    <div>
-                        <div>
-                            <a><?= $memo['user_id'] ?></a>
-                        </div>
-                        <div>
-                            <a><?= $memo['id'] ?></a>
-                        </div>
-                        <div>
-                            <a><?= $memo['title'] ?></a>
-                        </div>
-                        <div>
-                            <a><?= $memo['sentence'] ?></a>
-                        </div>
-                        <form action='../PageAction/delete.php' method="post">
-                            <div>
-                                <button name="delete" value=<?= $memo['id'] ?> type="submit">削除</button>
-                            </div>
-                        </form>
-                        <hr>
-                    </div>
-                <?php 
+            <div>
+                <a><?= $memo['user_id'] ?></a>
+            </div>
+            <div>
+                <a><?= $memo['id'] ?></a>
+            </div>
+            <div>
+                <a><?= $memo['title'] ?></a>
+            </div>
+            <div>
+                <a><?= $memo['sentence'] ?></a>
+            </div>
+            <form action='../PageAction/delete.php' method="post">
+                <div>
+                    <button name="delete" value=<?= $memo['id'] ?> type="submit">削除</button>
+                </div>
+            </form>
+            <hr>
+        </div>
+        <?php 
                 } ?>
-        </table> 
-    </div>
-    
-    <?
+    </table>
+</div>
+
+<?
 echo '--------------------------------ここからは現在ログインしてるユーザーの中身-----------------------------------------------';
 require '../Sql/personal_info.php';
     $now_date = [];
