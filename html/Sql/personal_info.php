@@ -73,8 +73,6 @@
         
         $statement = null;
         $pdo = null;
-        
-
         if($result){   
             log_out();
             login_now($mail,$password);
@@ -109,7 +107,6 @@
         
         $statement = null;
         $pdo = null;
-        
     }
     
     function login_check(){
@@ -131,15 +128,15 @@
         }
     }
 
-//メールアドレスの変更
-    function change_mail($mail,$password){
+//名前の変更
+    function change_mail($mail){
         $pdo = new PDO('mysql:host=mysql; dbname=mydatas; charset=utf8','root','root');
             $sql ="update info SET
-                    mail = :mail
+                    name = :name
                         WHERE 
                     login = true";
         $statement = $pdo->prepare($sql);
-        $statement->bindValue(':mail', $mail, PDO::PARAM_STR);
+        $statement->bindValue(':name', $mail, PDO::PARAM_STR);
         $statement->execute();
         
         $statement = null;

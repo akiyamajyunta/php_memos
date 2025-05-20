@@ -9,6 +9,7 @@
         $statement = $pdo->prepare($sql);
         $statement->bindValue(':id', $id, PDO::PARAM_INT);
         $statement->execute();
-        $message = '削除しました';
-        header("Location: ../Front/main.php?message_main=$message");
-        exit();
+        session_start();
+        $_SESSION['message_main'] = '削除しました';
+        header("Location: ../Front/main.php");
+        exit;

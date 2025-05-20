@@ -37,23 +37,26 @@
             <div class="form" onclick="ChangeName()">
                 <button class='form-button' type="submit">名前を変える</button>
             </div>  
-            <div class="new-name" id='new-name'>
-                <input class="form-text" name="new-name" type="text">
-                <button class='change-button' type="submit">変更</button>
-            </div>        
-
+            <form action="../PageAction/changeName.php" method="post">
+                <div class="new-name" id='new-name'>
+                    <input class="form-text" name="new-name" type="text">
+                    <button class='change-button' type="submit">変更</button>
+                </div>        
+            </form>
 
 
             <div class="form" onclick="ChangePassword()">
                 <button class='form-button' type="submit">パスワードを変える</button>
             </div>
-            <div class="new-password" id='new-password'>
-                <input class="form-text" name="now-password" type="text">
-                <label>現在のパスワード</label>
-                <input class="form-text" name="new-password" type="text">
-                <label>新しいパスワード</label>
-                <button class='change-button' type="submit">変更</button>
-            </div> 
+            <form action="../PageAction/changePassword.php" method="post">
+                <div class="new-password" id='new-password'>
+                    <input class="form-text" name="now-password" type="text">
+                    <label>現在のパスワード</label>
+                    <input class="form-text" name="new-password" type="text">
+                    <label>新しいパスワード</label>
+                    <button class='change-button' type="submit">変更</button>
+                </div>  
+            </form>
 
 
         <br>

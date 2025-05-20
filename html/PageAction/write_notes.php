@@ -10,30 +10,36 @@
     $user_id = filter_input(INPUT_POST, 'User_id');
 
     if(empty($title)){
-            $message = 'タイトルを記入してください';
-            header("Location: ../Front/main.php?message_main=$message");
+            session_start();
+            $_SESSION['message_main'] = 'タイトルを記入してください';
+            header("Location: ../Front/main.php");
             exit;
     }elseif(strlen($title)>60){
-            $message = 'タイトルは60字以内にしてください';
-            header("Location: ../Front/main.php?message_main=$message");
+            session_start();
+            $_SESSION['message_main'] = 'タイトルは60字以内にしてください';
+            header("Location: ../Front/main.php");
             exit;
 
     }elseif(empty($sentence)){
-            $message = '中身を記入してください';
-            header("Location: ../Front/main.php?message_main=$message");
+            session_start();
+            $_SESSION['message_main'] = '中身を記入してください';
+            header("Location: ../Front/main.php");
             exit;
     }elseif(strlen($title)>255){
-            $message = '文章は255字以内にしてください';
-            header("Location: ../Front/main.php?message_main=$message");
+            session_start();
+            $_SESSION['message_main'] = '文章は255字以内にしてください';
+            header("Location: ../Front/main.php");
             exit;
     }else{
         if(write_memos($title,$sentence,$user_id)){
-                $message = '投稿しました';
-                header("Location: ../Front/main.php?message_main=$message");
+                session_start();
+                $_SESSION['message_main'] = '投稿しました';
+                header("Location: ../Front/main.php");
                 exit;
         }else{
-                $message = '投稿できませんでした';
-                header("Location: ../Front/main.php?message_main=$message");
+                session_start();
+                $_SESSION['message_main'] = '投稿できませんでした';
+                header("Location: ../Front/main.php");
                 exit;
         }
     }

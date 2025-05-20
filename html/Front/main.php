@@ -3,16 +3,19 @@
     require_once '../Sql/personal_info.php';
     
     $now_date = login_check();
+
     $user_id = $now_date[0] ;//'今ログインしてるユーザーのID';
 
     $name = $now_date[1]; //'現在ログインしてるユーザーの名前';
 
     $memos = put_memo($user_id);
 
-    if (isset($_GET['message_main'])) {
-        $message = $_GET['message_main'];
-        } 
-        
+    session_start();
+    if (isset($_SESSION['message_main'])) {
+        $message = $_SESSION['message_main'];
+    } 
+    exit;
+
     $new_entry_link = 'user_entry.php';
     $log_out_link = '../PageAction/logout.php';
 

@@ -9,10 +9,11 @@
     $mail = $now_date[2];//mail
     $password = $now_date[3];//password
 
-
-    if (isset($_GET['message'])) {
-    $message = $_GET['message'];
+    session_start();
+    if (isset($_SESSION['message'])) {
+    $message = $_SESSION['message'];
     } 
+    exit;
 
     $new_entry_link = 'user_entry.php';
     $log_out_link = '../PageAction/logout.php';

@@ -1,7 +1,7 @@
 <?
     require_once '../Sql/personal_info.php';
-    if (isset($_GET['message'])) {
-        $message = $_GET['message'];
+    if (isset($_SESSION['message_user_entry'])) {
+        $message = $_SESSION['message_user_entry'];
     }
     
     $now_date = login_check();
