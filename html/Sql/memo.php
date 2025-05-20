@@ -7,7 +7,8 @@
                     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
                     user_id INT NOT NULL,
                     title VARCHAR(60) NOT NULL,
-                    sentence VARCHAR(255) NOT NULL
+                    sentence VARCHAR(255) NOT NULL,
+                    time     DATETIME
                     )";
                 $pdo->query($sql);
             }catch (PDOException $e){
@@ -62,9 +63,9 @@
             try{
                 $pdo = new PDO('mysql:host=mysql; dbname=mydatas; charset=utf8','root','root');
                     $sql = "INSERT INTO  memo 
-                                (title, sentence, user_id) 
+                                (title, sentence, user_id, time) 
                             VALUES 
-                                (:title , :sentence, :user_id )";
+                                (:title , :sentence, :user_id ,  NOW() )";
                     $statement = $pdo->prepare($sql);
                     $statement->bindValue(':title', $title, PDO::PARAM_STR);
                     $statement->bindValue(':sentence', $sentence, PDO::PARAM_STR);

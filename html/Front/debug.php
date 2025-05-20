@@ -48,6 +48,9 @@ echo '--------------------------------ここからはメモの中身------------
             <div>
                 <a><?= $memo['sentence'] ?></a>
             </div>
+            <div>
+                <a><?= $memo['time'] ?></a>
+            </div>
             <form action='../PageAction/delete.php' method="post">
                 <div>
                     <button name="delete" value=<?= $memo['id'] ?> type="submit">削除</button>
