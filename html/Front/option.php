@@ -11,6 +11,10 @@
 
     $new_entry_link = 'user_entry.php';
     $log_out_link = '../PageAction/logout.php';
+      session_start();
+    if (isset($_SESSION['message_option'])) {
+        $message = $_SESSION['message_option'];
+    } 
 ?>
 
 <? ?>
@@ -32,8 +36,6 @@
         <p>ユーザー情報</p>
         <p><? echo $name ?></p>
         <p><? echo $mail ?></p>
-
-
             <div class="form" onclick="ChangeName()">
                 <button class='form-button' type="submit">名前を変える</button>
             </div>  
@@ -50,17 +52,17 @@
             </div>
             <form action="../PageAction/changePassword.php" method="post">
                 <div class="new-password" id='new-password'>
-                    <input class="form-text" name="now-password" type="text">
+                    <input class="form-text" name="now-password" type="password">
                     <label>現在のパスワード</label>
-                    <input class="form-text" name="new-password" type="text">
+                    <input class="form-text" name="new-password" type="password">
                     <label>新しいパスワード</label>
                     <button class='change-button' type="submit">変更</button>
                 </div>  
             </form>
-
-
         <br>
-
+            <?php if (!empty($message)): ?>
+                <a class='main-message'><?php echo htmlspecialchars($message, ENT_QUOTES, 'UTF-8'); ?></a>
+            <?php endif; ?>
     </div>
 </body>
 </html>

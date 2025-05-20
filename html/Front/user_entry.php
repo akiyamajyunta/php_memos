@@ -10,6 +10,12 @@
     $mail = $now_date[2];//mail
     $new_entry_link = 'user_entry.php';
     $log_out_link = '../PageAction/logout.php';
+
+    session_start();
+    if (isset($_SESSION['message_user_entry'])) {
+        $message = $_SESSION['message_user_entry'];
+    } 
+
 ?>
 
 <!DOCTYPE html>

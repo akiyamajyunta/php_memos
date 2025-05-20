@@ -14,7 +14,6 @@
     if (isset($_SESSION['message_main'])) {
         $message = $_SESSION['message_main'];
     } 
-    exit;
 
     $new_entry_link = 'user_entry.php';
     $log_out_link = '../PageAction/logout.php';

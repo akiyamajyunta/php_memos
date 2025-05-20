@@ -9,11 +9,13 @@
 
 
     if (empty($new_name)) {
-            $message = '名前が入力されてません';
+        session_start();
+                $_SESSION['message_option'] = '名前が入力されてません';
             header("Location: ../Front/option.php");
             exit;
     }else{
-
+        session_start();
+                 $_SESSION['message_option'] = '名前を変えました';
             change_mail($new_name);
             header("Location: ../Front/option.php");
     }

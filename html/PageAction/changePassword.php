@@ -14,22 +14,29 @@
     // echo $now_info[3];//今ログインしてるパスワード
 
     if($now_info[0] == ''){
+        session_start();
+        $_SESSION['message_option'] =  'ログインしてください';
         header("Location: ../Front/option.php");
     }//ゲスト(ログインしてないなら、戻す)
 
     if (empty($now_password) or empty($new_password)){
-            $message = 'パスワードを入力してください';
+        session_start();
+             $_SESSION['message_option'] =  'パスワードを入力してください';
             header("Location: ../Front/option.php");
             exit;
     }elseif ($now_password !== $now_info[3]) {
-            $message = 'パスワードが一致しません';
+        session_start();
+             $_SESSION['message_option'] =  'パスワードが一致しません';
             header("Location: ../Front/option.php");
             exit;
     }elseif(!preg_match("/\A[a-z\d]{8,100}+\z/i", $new_password)){
-            $message = 'パスワードは英数字８文字以上１００文字以下にしてください。';
+        session_start();
+             $_SESSION['message_option'] =  'パスワードは英数字８文字以上１００文字以下にしてください。';
             header("Location: ../Front/option.php");
             exit;
     }else{
+        session_start();
+         $_SESSION['message_option'] = 'パスワードを変えました';
             change_password($new_password);
             header("Location: ../Front/option.php");
     }
