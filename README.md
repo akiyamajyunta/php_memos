@@ -12,10 +12,6 @@
 # 起動方法
 
 ```:shell
-cd ./my_php
-```
-
-```:shell
 docker compose up --build
 ```
 
